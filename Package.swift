@@ -5,16 +5,16 @@ let package = Package(
     name: "AROPluginSDK",
     platforms: [.macOS(.v12)],
     products: [
-        // Core types only (ActionInput, ActionOutput, AROPlugin builder, etc.)
-        // Use this when your plugin has its own @_cdecl exports
+        // The main product — types + auto-generated @_cdecl exports.
+        // Plugin authors use: `import AROPluginKit`
+        .library(name: "AROPluginKit", targets: ["AROPluginKit"]),
+        // Core types only (no @_cdecl exports).
+        // Use when your plugin has its own @_cdecl exports.
         .library(name: "AROPluginSDK", targets: ["AROPluginSDK"]),
-        // Core types + auto-generated @_cdecl exports
-        // Use this for zero-boilerplate plugins that use AROPlugin builder
-        .library(name: "AROPluginSDKExport", targets: ["AROPluginSDKExport"]),
     ],
     targets: [
         .target(name: "AROPluginSDK"),
-        .target(name: "AROPluginSDKExport", dependencies: ["AROPluginSDK"]),
+        .target(name: "AROPluginKit", dependencies: ["AROPluginSDK"]),
         .testTarget(name: "AROPluginSDKTests", dependencies: ["AROPluginSDK"]),
     ]
 )
