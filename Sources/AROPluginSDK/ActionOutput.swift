@@ -7,8 +7,8 @@ import Foundation
 
 /// Builds the JSON response returned from `aro_plugin_execute`.
 ///
-/// Use the static factory methods to create success or error responses,
-/// optionally append events, and call `toCString()` to produce the
+/// Use the enum cases to create success or error responses, optionally
+/// append events, and call `toCString()` to produce the
 /// `UnsafeMutablePointer<CChar>` expected by the C ABI.
 ///
 /// ## Success
@@ -18,7 +18,7 @@ import Foundation
 ///
 /// ## Error
 /// ```swift
-/// return ActionOutput.error(.notFound, "User not found").toCString()
+/// return ActionOutput.failure(.notFound, "User not found").toCString()
 /// ```
 ///
 /// ## Emitting events
@@ -28,40 +28,18 @@ import Foundation
 ///     .emit("UserCreated", data: ["user": userDict])
 ///     .toCString()
 /// ```
-public enum ActionOutput: Sendable {
+///
+/// > Note: `[String: Any]` is not `Sendable` in Swift 6 strict mode.
+/// > `ActionOutput` values are constructed and consumed on a single thread
+/// > within the synchronous C ABI call, so `@unchecked Sendable` is safe.
+public enum ActionOutput: @unchecked Sendable {
 
     /// A successful response carrying an arbitrary payload dictionary.
     case success([String: Any])
 
     /// An error response with a standard code, an optional human-readable
     /// message, and optional additional details.
-    case error(PluginErrorCode, String?, [String: Any]?)
-
-    // MARK: - Factory Helpers
-
-    /// Create a success response.
-    public static func success(_ payload: [String: Any] = [:]) -> ActionOutput {
-        .success(payload)
-    }
-
-    /// Create an error response with just a code.
-    public static func error(_ code: PluginErrorCode) -> ActionOutput {
-        .error(code, nil, nil)
-    }
-
-    /// Create an error response with a code and message.
-    public static func error(_ code: PluginErrorCode, _ message: String) -> ActionOutput {
-        .error(code, message, nil)
-    }
-
-    /// Create an error response with a code, message, and additional details.
-    public static func error(
-        _ code: PluginErrorCode,
-        _ message: String,
-        details: [String: Any]
-    ) -> ActionOutput {
-        .error(code, message, details)
-    }
+    case failure(PluginErrorCode, String? = nil, [String: Any]? = nil)
 
     // MARK: - Event Emission
 
@@ -78,7 +56,7 @@ public enum ActionOutput: Sendable {
     ///     .toCString()
     /// ```
     public func emit(_ eventType: String, data: [String: Any] = [:]) -> ActionOutput {
-        var payload = self.payloadDict()
+        var payload = payloadDict()
 
         // Append to existing events array (or start a new one)
         var events = payload["_events"] as? [[String: Any]] ?? []
@@ -89,8 +67,8 @@ public enum ActionOutput: Sendable {
         switch self {
         case .success:
             return .success(payload)
-        case .error(let code, let message, _):
-            return .error(code, message, payload)
+        case .failure(let code, let message, _):
+            return .failure(code, message, payload)
         }
     }
 
@@ -127,12 +105,12 @@ public enum ActionOutput: Sendable {
     // MARK: - Internal Helpers
 
     /// Build the raw `[String: Any]` dictionary for this output.
-    private func payloadDict() -> [String: Any] {
+    func payloadDict() -> [String: Any] {
         switch self {
         case .success(let payload):
             return payload
 
-        case .error(let code, let message, let details):
+        case .failure(let code, let message, let details):
             var dict: [String: Any] = ["error_code": code.rawValue]
             dict["error"] = message ?? code.description
             if let details { dict["details"] = details }

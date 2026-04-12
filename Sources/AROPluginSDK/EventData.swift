@@ -29,7 +29,7 @@
 ///     }
 /// }
 /// ```
-public struct EventData: Sendable {
+public struct EventData: @unchecked Sendable {
 
     /// The raw deserialized payload dictionary.
     public let data: [String: Any]

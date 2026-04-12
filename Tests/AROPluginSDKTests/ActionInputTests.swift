@@ -3,6 +3,7 @@
 // AROPluginSDKTests - ActionInput Unit Tests
 // ============================================================
 
+import Foundation
 import Testing
 @testable import AROPluginSDK
 
@@ -210,9 +211,9 @@ struct ActionOutputTests {
         #expect(!json.contains("error_code"))
     }
 
-    @Test("error serialises error_code")
+    @Test("failure serialises error_code")
     func errorJSON() {
-        let output = ActionOutput.error(.notFound, "Not found")
+        let output = ActionOutput.failure(.notFound, "Not found")
         let json = output.toJSON()
         #expect(json.contains("\"error_code\""))
         #expect(json.contains("2"))

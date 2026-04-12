@@ -16,7 +16,7 @@
 /// ```swift
 /// let discount = input.with.double("discount") ?? 0.0
 /// ```
-public struct Params: Sendable {
+public struct Params: @unchecked Sendable {
 
     private let data: [String: Any]
 

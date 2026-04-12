@@ -1,0 +1,3 @@
+module AROPluginSDKPackageTests {
+    header "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.build/include/AROPluginSDKPackageTests-Swift.h"
+}

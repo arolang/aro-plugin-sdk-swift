@@ -1,0 +1,792 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.xctest/Contents/MacOS/AROPluginSDKPackageTests",
+      "packagePath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift",
+      "productName" : "AROPluginSDKPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.AROPluginSDK-arm64-apple-macosx-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/sources",
+      "importPath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ABI.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ActionInput.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ActionOutput.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ContextInfo.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/Descriptor.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/EventData.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/JSONHelpers.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/Params.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/PluginErrorCode.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/QualifierParams.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/Testing.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "AROPluginSDK",
+      "moduleOutputPath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/Modules/AROPluginSDK.swiftmodule",
+      "objects" : [
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/ABI.swift.o",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/ActionInput.swift.o",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/ActionOutput.swift.o",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/ContextInfo.swift.o",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/Descriptor.swift.o",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/EventData.swift.o",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/JSONHelpers.swift.o",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/Params.swift.o",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/PluginErrorCode.swift.o",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/QualifierParams.swift.o",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/Testing.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx12.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j18",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/include/AROPluginSDK-Swift.h",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "aro_plugin_sdk_swift"
+      ],
+      "outputFileMapPath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/ABI.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/ActionInput.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/ActionOutput.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/ContextInfo.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/Descriptor.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/EventData.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/JSONHelpers.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/Params.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/PluginErrorCode.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/QualifierParams.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/Testing.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/Modules/AROPluginSDK.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ABI.swift",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ActionInput.swift",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ActionOutput.swift",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ContextInfo.swift",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/Descriptor.swift",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/EventData.swift",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/JSONHelpers.swift",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/Params.swift",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/PluginErrorCode.swift",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/QualifierParams.swift",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/Testing.swift"
+      ],
+      "tempsPath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.AROPluginSDKPackageTests-arm64-apple-macosx-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.build/sources",
+      "importPath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/Modules/AROPluginSDKTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "AROPluginSDKPackageTests",
+      "moduleOutputPath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/Modules/AROPluginSDKPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx12.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j18",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.build/include/AROPluginSDKPackageTests-Swift.h",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "aro_plugin_sdk_swift"
+      ],
+      "outputFileMapPath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/Modules/AROPluginSDKPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.AROPluginSDKTests-arm64-apple-macosx-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKTests.build/sources",
+      "importPath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Tests/AROPluginSDKTests/ActionInputTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/Modules/AROPluginSDK.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "AROPluginSDKTests",
+      "moduleOutputPath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/Modules/AROPluginSDKTests.swiftmodule",
+      "objects" : [
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKTests.build/ActionInputTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j18",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "aro_plugin_sdk_swift"
+      ],
+      "outputFileMapPath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKTests.build/ActionInputTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/Modules/AROPluginSDKTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Tests/AROPluginSDKTests/ActionInputTests.swift"
+      ],
+      "tempsPath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "AROPluginSDK" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "AROPluginSDK",
+      "-package-name",
+      "aro_plugin_sdk_swift",
+      "-c",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ABI.swift",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ActionInput.swift",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ActionOutput.swift",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ContextInfo.swift",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/Descriptor.swift",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/EventData.swift",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/JSONHelpers.swift",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/Params.swift",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/PluginErrorCode.swift",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/QualifierParams.swift",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/Testing.swift",
+      "-I",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx12.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j18",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/include/AROPluginSDK-Swift.h",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "aro_plugin_sdk_swift",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "AROPluginSDKPackageTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "AROPluginSDKPackageTests",
+      "-package-name",
+      "aro_plugin_sdk_swift",
+      "-c",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx12.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j18",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.build/include/AROPluginSDKPackageTests-Swift.h",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "aro_plugin_sdk_swift",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "AROPluginSDKTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "AROPluginSDKTests",
+      "-package-name",
+      "aro_plugin_sdk_swift",
+      "-c",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Tests/AROPluginSDKTests/ActionInputTests.swift",
+      "-I",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j18",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "aro_plugin_sdk_swift",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "AROPluginSDK" : [
+
+    ],
+    "AROPluginSDKPackageTests" : [
+      "AROPluginSDKTests",
+      "AROPluginSDK"
+    ],
+    "AROPluginSDKTests" : [
+      "AROPluginSDK"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ABI.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ActionInput.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ActionOutput.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/ContextInfo.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/Descriptor.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/EventData.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/JSONHelpers.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/Params.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/PluginErrorCode.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/QualifierParams.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Sources/AROPluginSDK/Testing.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/sources"
+    },
+    "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.build/sources"
+    },
+    "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/ABI.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/ActionInput.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/ActionOutput.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/ContextInfo.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/Descriptor.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/EventData.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/JSONHelpers.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/Params.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/PluginErrorCode.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/QualifierParams.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/Testing.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKTests.build/ActionInputTests.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKPackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/Tests/AROPluginSDKTests/ActionInputTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDKTests.build/sources"
+    },
+    "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}

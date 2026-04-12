@@ -63,7 +63,7 @@ public func bridgeToNSObject(_ value: Any) -> Any {
 public func aroParseJSON(_ ptr: UnsafePointer<CChar>?) -> [String: Any] {
     guard
         let ptr,
-        let json   = String(validatingUTF8: ptr),
+        let json   = String(validatingCString: ptr),
         !json.isEmpty,
         let data   = json.data(using: .utf8),
         let object = try? JSONSerialization.jsonObject(with: data),

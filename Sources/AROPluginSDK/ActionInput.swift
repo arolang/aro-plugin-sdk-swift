@@ -13,6 +13,10 @@ import Foundation
 /// accessors so plugin authors do not need to work with `[String: Any]`
 /// directly.
 ///
+/// > Note: `[String: Any]` is not `Sendable` in Swift 6 strict mode.
+/// > `ActionInput` is constructed on the same thread as the C ABI call site
+/// > and used immediately, so `@unchecked Sendable` is safe here.
+///
 /// ## Envelope structure
 /// ```json
 /// {
@@ -46,7 +50,7 @@ import Foundation
 ///     return ActionOutput.success(["message": "Hello, \(name)!"]).toCString()
 /// }
 /// ```
-public struct ActionInput: Sendable {
+public struct ActionInput: @unchecked Sendable {
 
     /// The raw deserialized envelope dictionary.
     public let data: [String: Any]

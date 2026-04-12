@@ -3,6 +3,8 @@
 // AROPluginSDK - Qualifier Parameter Access (ARO-0073)
 // ============================================================
 
+import Foundation
+
 /// Type-safe wrapper for the JSON envelope passed to `aro_plugin_qualifier`.
 ///
 /// The runtime serialises qualifier invocations into a JSON envelope:
@@ -26,7 +28,7 @@
 ///     // ... transform params.rawValue ...
 /// }
 /// ```
-public struct QualifierParams: Sendable {
+public struct QualifierParams: @unchecked Sendable {
 
     /// The raw deserialized envelope.
     public let data: [String: Any]
@@ -108,7 +110,7 @@ public struct QualifierParams: Sendable {
 /// Response returned from `aro_plugin_qualifier`.
 ///
 /// Use `toCString()` to produce the pointer expected by the C ABI.
-public struct QualifierOutput: Sendable {
+public struct QualifierOutput: @unchecked Sendable {
 
     private let result: Any?
     private let error: String?
