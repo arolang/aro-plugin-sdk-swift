@@ -11,7 +11,7 @@
 // directly to avoid duplicate symbol errors.
 
 import Foundation
-import AROPluginSDK
+@_exported import AROPluginSDK
 
 @_cdecl("aro_plugin_info")
 public func _aro_sdk_plugin_info() -> UnsafeMutablePointer<CChar>? {
