@@ -1,3 +1,0 @@
-module AROPluginSDK {
-    header "/Users/kris/Projects/ARO/ARO-SDKs/aro-plugin-sdk-swift/.build/arm64-apple-macosx/debug/AROPluginSDK.build/include/AROPluginSDK-Swift.h"
-}
