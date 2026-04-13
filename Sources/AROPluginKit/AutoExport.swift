@@ -21,20 +21,9 @@ private typealias RegisterFunc = @convention(c) () -> Void
 
 @_cdecl("aro_plugin_info")
 public func _aro_sdk_plugin_info() -> UnsafeMutablePointer<CChar>? {
-    // Trigger plugin registration if not yet done
-    if AROPluginExport.shared == nil {
-        // Look up aro_plugin_register in the same dylib image using RTLD_DEFAULT.
-        // On Darwin, RTLD_DEFAULT = (void*)-2 = 0xFFFFFFFFFFFFFFFE
-        #if canImport(Darwin)
-        let RTLD_DEFAULT_HANDLE = UnsafeMutableRawPointer(bitPattern: UInt(bitPattern: Int(-2)))!
-        #else
-        let RTLD_DEFAULT_HANDLE = dlopen(nil, RTLD_NOW)!
-        #endif
-        if let sym = dlsym(RTLD_DEFAULT_HANDLE, "aro_plugin_register") {
-            let registerFn = unsafeBitCast(sym, to: RegisterFunc.self)
-            registerFn()
-        }
-    }
+    // Note: Plugin registration is triggered by the runtime calling
+    // aro_plugin_register (if it exists) before aro_plugin_info.
+    // See NativePluginHost.loadPluginInfo() and PluginLoader.loadDylib().
     guard let plugin = AROPluginExport.shared else {
         return aroStrdup("{\"name\":\"unknown\",\"version\":\"0.0.0\",\"actions\":[],\"qualifiers\":[]}")
     }
