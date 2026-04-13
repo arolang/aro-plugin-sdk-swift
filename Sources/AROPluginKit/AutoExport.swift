@@ -13,8 +13,22 @@
 import Foundation
 @_exported import AROPluginSDK
 
+/// Plugin authors define this to trigger their file-scope let initialization:
+///     @_cdecl("aro_plugin_register")
+///     public func register() { _ = plugin }
+/// The SDK calls it automatically before aro_plugin_info.
+private typealias RegisterFunc = @convention(c) () -> Void
+
 @_cdecl("aro_plugin_info")
 public func _aro_sdk_plugin_info() -> UnsafeMutablePointer<CChar>? {
+    // Trigger plugin registration if not yet done
+    if AROPluginExport.shared == nil {
+        // Look up aro_plugin_register in the same process
+        if let sym = dlsym(dlopen(nil, RTLD_NOW), "aro_plugin_register") {
+            let registerFn = unsafeBitCast(sym, to: RegisterFunc.self)
+            registerFn()
+        }
+    }
     guard let plugin = AROPluginExport.shared else {
         return aroStrdup("{\"name\":\"unknown\",\"version\":\"0.0.0\",\"actions\":[],\"qualifiers\":[]}")
     }

@@ -50,6 +50,10 @@ public final class AROPlugin: @unchecked Sendable {
         self.name = name
         self.version = version
         self.handle = handle
+        // Auto-register: every AROPlugin instance auto-registers itself.
+        // Since builder methods return self, the final registered plugin
+        // always has all actions/qualifiers/services attached.
+        AROPluginExport.shared = self
     }
 
     // MARK: - Action Registration
