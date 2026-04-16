@@ -1,29 +1,26 @@
 // ============================================================
 // AutoExport.swift
-// AROPluginSDKExport - Auto-generated @_cdecl entry points
+// AROPluginKit - Auto-generated @_cdecl entry points
 // ============================================================
 //
 // This target provides the @_cdecl exports that the ARO runtime
-// loads via dlsym. Import AROPluginSDKExport (instead of AROPluginSDK)
-// when you want zero-boilerplate plugins using the AROPlugin builder.
+// loads via dlsym, plus the #AROExport macro for plugin registration.
 //
-// If your plugin has its own @_cdecl exports, import AROPluginSDK
-// directly to avoid duplicate symbol errors.
+// Plugin authors use:
+//
+//     import AROPluginKit
+//
+//     let plugin = AROPlugin(name: "my-plugin", version: "1.0.0", handle: "My")
+//         .action("Greet", verbs: ["greet"]) { input in ... }
+//
+//     #AROExport(plugin)
+//
 
 import Foundation
 @_exported import AROPluginSDK
 
-/// Plugin authors define this to trigger their file-scope let initialization:
-///     @_cdecl("aro_plugin_register")
-///     public func register() { _ = plugin }
-/// The SDK calls it automatically before aro_plugin_info.
-private typealias RegisterFunc = @convention(c) () -> Void
-
 @_cdecl("aro_plugin_info")
 public func _aro_sdk_plugin_info() -> UnsafeMutablePointer<CChar>? {
-    // Note: Plugin registration is triggered by the runtime calling
-    // aro_plugin_register (if it exists) before aro_plugin_info.
-    // See NativePluginHost.loadPluginInfo() and PluginLoader.loadDylib().
     guard let plugin = AROPluginExport.shared else {
         return aroStrdup("{\"name\":\"unknown\",\"version\":\"0.0.0\",\"actions\":[],\"qualifiers\":[]}")
     }
