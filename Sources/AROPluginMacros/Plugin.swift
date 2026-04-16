@@ -5,5 +5,6 @@ import SwiftSyntaxMacros
 struct AROPluginMacrosPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         AROExportMacro.self,
+        AROExportPeerMacro.self,
     ]
 }
