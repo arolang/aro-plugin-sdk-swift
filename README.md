@@ -1,92 +1,269 @@
-# AROPluginSDK (Swift)
+# ARO Plugin SDK for Swift
 
-Swift helper library for building ARO plugins. Eliminates boilerplate by providing
-type-safe wrappers for the ARO-0073 C ABI.
+Build ARO plugins in Swift with zero boilerplate. The SDK provides a declarative builder API, the `@AROExport` macro for automatic C ABI generation, and type-safe accessors for all input and output.
 
 ## Installation
 
-Add the package to your plugin's `Package.swift`:
+Add the SDK to your plugin's `Package.swift`:
 
 ```swift
-dependencies: [
-    .package(url: "https://github.com/arolang/aro-plugin-sdk-swift", from: "1.0.0"),
-],
-targets: [
-    .target(name: "MyPlugin", dependencies: ["AROPluginSDK"]),
-]
+// swift-tools-version: 5.9
+import PackageDescription
+
+let package = Package(
+    name: "MyPlugin",
+    platforms: [.macOS(.v12)],
+    products: [
+        .library(name: "MyPlugin", type: .dynamic, targets: ["MyPlugin"]),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/arolang/aro-plugin-sdk-swift.git", branch: "main"),
+    ],
+    targets: [
+        .target(name: "MyPlugin", dependencies: [
+            .product(name: "AROPluginKit", package: "aro-plugin-sdk-swift"),
+        ]),
+    ]
+)
 ```
 
-## Usage
+## Quick Start
 
 ```swift
-import AROPluginSDK
-import Foundation
+import AROPluginKit
 
-@_cdecl("aro_plugin_execute")
-public func aroPluginExecute(
-    action:    UnsafePointer<CChar>?,
-    inputJson: UnsafePointer<CChar>?
-) -> UnsafeMutablePointer<CChar>? {
+@AROExport
+private let plugin = AROPlugin(name: "my-plugin", version: "1.0.0", handle: "Greeting")
+    .action("Greet", verbs: ["greet"], role: "own", prepositions: ["with"],
+            description: "Greet someone by name") { input in
+        let name = input.string("name") ?? input.with.string("name") ?? "World"
+        return .success(["greeting": "Hello, \(name)!"])
+    }
+```
 
-    let input  = ActionInput(aroParseJSON(inputJson))
-    let name   = input.string("data") ?? "World"
+The `@AROExport` macro generates all required C ABI exports (`aro_plugin_info`, `aro_plugin_execute`, `aro_plugin_qualifier`, `aro_plugin_free`, etc.) automatically.
+
+## Actions
+
+Actions handle verbs in ARO statements like `Greet the <result> with <data>.`
+
+```swift
+.action("Greet", verbs: ["greet"], role: "own", prepositions: ["with"],
+        description: "Greet someone") { input in
+    let name = input.string("name") ?? "World"
     let formal = input.with.bool("formal") ?? false
-    let reqId  = input.context.requestId ?? "(none)"
 
-    let greeting = formal ? "Good day, \(name)." : "Hello, \(name)!"
-
-    return ActionOutput
-        .success(["message": greeting, "requestId": reqId])
-        .emit("GreetingIssued", data: ["name": name])
-        .toCString()
-}
-
-@_cdecl("aro_plugin_free")
-public func aroPluginFree(ptr: UnsafeMutablePointer<CChar>?) {
-    guard let ptr else { return }
-    free(ptr)
+    if formal {
+        return .success(["greeting": "Good day, \(name)."])
+    }
+    return .success(["greeting": "Hello, \(name)!"])
 }
 ```
 
-## Key Types
+**Roles**: `"request"` (external → internal), `"own"` (internal → internal), `"response"` (internal → external), `"export"` (publishes data)
 
-| Type | Purpose |
-|------|---------|
-| `ActionInput` | Typed access to the JSON envelope passed to `aro_plugin_execute` |
-| `ActionOutput` | Builder for the JSON response, with event emission support |
-| `Descriptor` | Parsed result/source descriptor (`base` + `specifiers`) |
-| `ContextInfo` | Execution context (request ID, feature set, business activity) |
-| `Params` | Named parameters from the ARO `with { … }` clause |
-| `EventData` | Typed access to event payloads in `aro_plugin_on_event` |
-| `QualifierParams` | Envelope wrapper for `aro_plugin_qualifier` |
-| `QualifierOutput` | Response builder for qualifier transformations |
-| `PluginErrorCode` | Standard error codes 0–10 (ARO-0073) |
-| `PluginErrorCategory` | Broad error category groupings |
+## Qualifiers
 
-## ABI Helpers
+Qualifiers transform values using the `<value: Handle.qualifier>` syntax in ARO.
 
 ```swift
-// Parse JSON from a C string pointer (returns empty dict on failure, never throws)
-let dict = aroParseJSON(inputJson)
-
-// Allocate a malloc-based C string safe to return across dylib boundaries
-return aroStrdup("{\"ok\": true}")
+.qualifier("reverse", inputTypes: ["List", "String"],
+           description: "Reverse elements or characters") { params in
+    if let arr = params.arrayValue { return .success(Array(arr.reversed())) }
+    if let str = params.stringValue { return .success(String(str.reversed())) }
+    return .failure("reverse requires a list or string")
+}
 ```
+
+Qualifiers with parameters (from the ARO `with { }` clause):
+
+```swift
+.qualifier("top", inputTypes: ["List"], acceptsParameters: true,
+           description: "Return top N elements") { params in
+    guard let arr = params.arrayValue else { return .failure("requires a list") }
+    let n = params.with.int("count") ?? 3
+    return .success(Array(arr.prefix(n)))
+}
+```
+
+## Services
+
+Services expose methods callable via `Call the <result> from the <service: method>.`
+
+```swift
+.service("counter", methods: ["increment", "get", "reset"],
+         description: "Thread-safe counter") { method, input in
+    switch method {
+    case "increment":
+        count += 1
+        return .success(["count": count])
+    case "get":
+        return .success(["count": count])
+    case "reset":
+        count = 0
+        return .success(["count": 0])
+    default:
+        return .failure(.notFound, "Unknown method: \(method)")
+    }
+}
+```
+
+## Lifecycle Hooks
+
+```swift
+.onInit {
+    // Called once when the plugin is loaded — open connections, allocate resources
+}
+.onShutdown {
+    // Called when the plugin is unloaded — close connections, flush buffers
+}
+```
+
+## Event Emission
+
+Actions can emit events that trigger other ARO feature sets:
+
+```swift
+.action("CreateUser", verbs: ["createuser"], role: "own", prepositions: ["with"]) { input in
+    let user = createUser(input)
+    return .success(["user": user])
+           .emit("UserCreated", data: ["userId": user["id"]!])
+}
+```
+
+## Input API
+
+`ActionInput` provides type-safe access to the JSON envelope:
+
+```swift
+// Primary data (top-level keys take precedence over _with)
+input.string("name")         // String?
+input.int("count")           // Int?
+input.double("price")        // Double?
+input.bool("enabled")        // Bool?
+input.array("items")         // [Any]?
+input.dict("metadata")       // [String: Any]?
+
+// With-clause parameters: with { format: "json", limit: 10 }
+input.with.string("format")  // String?
+input.with.int("limit")      // Int?
+input.with.bool("verbose")   // Bool?
+input.with.isEmpty            // Bool
+input.with.keys               // [String]
+
+// ARO statement descriptors
+input.result.base             // "greeting"
+input.result.specifiers       // ["formal"]
+input.source.base             // "user-data"
+input.preposition             // "with"
+
+// Execution context
+input.context.requestId       // String? (HTTP request ID)
+input.context.featureSet      // String? (ARO feature set name)
+input.context.businessActivity // String? (business activity label)
+```
+
+## Output API
+
+`ActionOutput` builds the JSON response:
+
+```swift
+return .success(["key": "value"])                           // Simple success
+return .success(["result": data]).emit("Event", data: [...]) // With event
+return .failure(.invalidInput, "Missing required field")     // Error with code
+return .failure(.notFound, "User not found", ["id": userId]) // Error with details
+```
+
+## Error Codes
+
+| Code | Name | Description |
+|------|------|-------------|
+| 0 | `success` | No error |
+| 1 | `invalidInput` | Missing or malformed input |
+| 2 | `notFound` | Resource not found |
+| 3 | `permissionDenied` | Access denied |
+| 4 | `timeout` | Operation timed out |
+| 5 | `connectionFailed` | Network/connection error |
+| 6 | `executionFailed` | Runtime execution error |
+| 7 | `invalidState` | Invalid plugin state |
+| 8 | `resourceExhausted` | Out of resources |
+| 9 | `unsupported` | Feature not supported |
+| 10 | `rateLimited` | Rate limit exceeded |
 
 ## Testing
 
-Use the mock helpers in test targets:
+The SDK provides mock helpers for unit testing:
 
 ```swift
 import AROPluginSDK
 
+// Mock a simple action input
+let input = mockInput(["name": "Alice", "age": 30])
+
+// Mock with with-clause parameters
+let input = mockInputWith(["format": "json", "limit": "10"])
+
+// Full envelope with all fields
 let input = mockEnvelope(
-    action:      "greet",
-    data:        "Alice",
+    action: "greet",
+    data: "Alice",
+    result: Descriptor(base: "greeting"),
+    source: Descriptor(base: "user"),
     preposition: "with",
-    withParams:  ["formal": "true"],
-    context:     ContextInfo(requestId: "req-001")
+    withParams: ["formal": true],
+    context: ContextInfo(requestId: "req-001", featureSet: "UserAPI")
 )
 
-let qualifier = mockQualifier(value: ["a", "b", "c"], type: "List")
+// Mock qualifier input
+let params = mockQualifier(value: [1, 2, 3], type: "List")
+assert(params.arrayValue?.count == 3)
 ```
+
+## Complete Example
+
+A plugin with actions, qualifiers, a service, and lifecycle hooks:
+
+```swift
+import AROPluginKit
+
+private var db: DatabaseConnection?
+
+@AROExport
+private let plugin = AROPlugin(name: "my-database", version: "1.0.0", handle: "DB")
+    .action("Query", verbs: ["query"], role: "request", prepositions: ["from", "with"],
+            description: "Execute a database query") { input in
+        let sql = input.string("data") ?? input.with.string("sql") ?? ""
+        guard let rows = try? db?.query(sql) else {
+            return .failure(.executionFailed, "Query failed")
+        }
+        return .success(["rows": rows, "count": rows.count])
+    }
+    .qualifier("count", inputTypes: ["List"],
+               description: "Count elements") { params in
+        guard let arr = params.arrayValue else { return .failure("requires a list") }
+        return .success(arr.count)
+    }
+    .service("db", methods: ["execute", "ping"],
+             description: "Low-level database access") { method, input in
+        switch method {
+        case "execute":
+            let sql = input.with.string("sql") ?? ""
+            return .success(["affected": try db?.execute(sql) ?? 0])
+        case "ping":
+            return .success(["alive": db != nil])
+        default:
+            return .failure(.notFound, "Unknown method: \(method)")
+        }
+    }
+    .onInit {
+        db = try? DatabaseConnection(path: "data.db")
+    }
+    .onShutdown {
+        db?.close()
+        db = nil
+    }
+```
+
+## License
+
+MIT
